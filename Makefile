@@ -1,43 +1,60 @@
-SRCS =  $(SRCS_DIR)/check.c                        \
-		$(SRCS_DIR)/chunk_sort.c                  \
-		$(SRCS_DIR)/do_move.c                     \
-		$(SRCS_DIR)/main.c                        \
-		$(SRCS_DIR)/move.c                        \
-		$(SRCS_DIR)/position.c                    \
-		$(SRCS_DIR)/push_pa_pb.c                  \
-		$(SRCS_DIR)/rebverse_rotate_rra_rrb_rrr.c \
-		$(SRCS_DIR)/rotate_ra_rb_rr.c             \
-		$(SRCS_DIR)/sort.c                        \
-		$(SRCS_DIR)/swap_sa_sb_ss.c               \
-		$(SRCS_DIR)/t_stack.c                     \
-		$(SRCS_DIR)/utils.c
+NAME				= push_swap
+LIBFT				= ./libft/libft.a
+INC					= inc/
+SRC_DIR				= srcs/
+OBJ_DIR				= obj/
 
-CC = gcc
+CC					= gcc
+CFLAGS				= -Wall -Werror -Wextra -I
+RM					= rm -f
 
-CFLAGS = -Wall -Wextra -Werror -I $(INCLUDES_DIR)
+COMMANDS_DIR		=	$(SRC_DIR)commands/push.c \
+						$(SRC_DIR)commands/rev_rotate.c \
+						$(SRC_DIR)commands/rotate.c \
+						$(SRC_DIR)commands/sort_stacks.c \
+						$(SRC_DIR)commands/sort_three.c \
+						$(SRC_DIR)commands/swap.c
 
-OBJS = $(SRCS:.c=.o)
+PUSH_SWAP_DIR		=	$(SRC_DIR)push_swap/handle_errors.c \
+						$(SRC_DIR)push_swap/init_a_to_b.c \
+						$(SRC_DIR)push_swap/init_b_to_a.c \
+						$(SRC_DIR)push_swap/push_swap.c \
+						$(SRC_DIR)push_swap/split.c \
+						$(SRC_DIR)push_swap/stack_init.c \
+						$(SRC_DIR)push_swap/stack_utils.c
 
-NAME = push_swap
 
-SRCS_DIR = srcs
+SRCS 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR)
 
-INCLUDES_DIR = includes
 
-all: $(NAME)
+OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+start:				
+					@make all
+
+$(LIBFT):
+					@make -C ./libft
+
+all: 				$(NAME)
+
+$(NAME): 			$(OBJ) $(LIBFT)
+					@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -o $(NAME)
+
+
+$(OBJ_DIR)%.o:		$(SRC_DIR)%.c 
+					@mkdir -p $(@D)
+					@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+					@$(RM) -r $(OBJ_DIR)
+					@make clean -C ./libft
 
-fclean: clean
-	rm -f $(NAME)
+fclean: 			clean
+					@$(RM) $(NAME)
+					@$(RM) $(LIBFT)
 
-re: fclean all
+re: 				fclean all
 
-.PHONY: all clean fclean re
+
+.PHONY: 			start all clean fclean re
