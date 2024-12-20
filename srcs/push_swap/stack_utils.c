@@ -14,17 +14,17 @@
 
 int	stack_len(t_stack_node *stack)
 {
-	int	i;
+	int	count;
 
 	if (!stack)
 		return (0);
-	i = 0;
+	count = 0;
 	while (stack)
 	{
 		stack = stack->next;
-		i++;
+		count++;
 	}
-	return (i);
+	return (count);
 }
 
 t_stack_node	*find_last(t_stack_node *stack)
