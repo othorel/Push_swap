@@ -50,7 +50,6 @@ Welcome to **Push Swap**, a C project that challenges you to sort a stack of int
 | `operations.c`    | Contains stack manipulation functions such as `sa`, `pb`, `ra`, etc.            |
 | `algorithm.c`     | Implements sorting logic and optimization strategies.                           |
 | `utils.c`         | Helper functions for validation, error handling, and memory management.         |
-| `bonus_checker.c` | Bonus file for validating the output of the program using a checker script.      |
 
 ---
 
@@ -61,3 +60,31 @@ Use the **Makefile** to compile the project.
 - **Compile the project:**
   ```bash
   make
+  ```
+- **Clean the project (remove object files):**
+  ```bash
+  make clean
+  ```
+- **Full cleanup (remove all generated files):**
+  ```bash
+  make fclean
+  ```
+- **Recompile after cleaning:**
+  ```bash
+  make re
+  ```
+  ---
+
+## 💻 Usage
+  
+Once compiled, you can use the Push Swap program as follows:
+
+Running the Push Swap Program
+Provide a list of integers as arguments. The program will output the sequence of operations to sort the stack.
+```bash
+./push_swap [integers]
+```
+Example:
+```bash
+./push_swap 3 2 1
+```
