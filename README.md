@@ -113,4 +113,17 @@ Test the program with various cases to ensure robustness:
 ARG="3 2 1"; ./push_swap $ARG | ./checker_linux $ARG
 ```
 ---
+## 🌟 Algorithms
 
+The project encourages the use of efficient sorting algorithms such as:
+
+Insertion Sort (for small stacks).
+Quick Sort-based partitioning (for larger stacks).
+
+---
+
+## 🤝 Contributing
+
+If you'd like to contribute to this project, feel free to fork the repository, submit your changes, and create a pull request!
+
+---
