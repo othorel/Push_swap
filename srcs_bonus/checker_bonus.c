@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olthorel <olthorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 11:41:59 by olthorel          #+#    #+#             */
-/*   Updated: 2024/12/20 11:41:59 by olthorel         ###   ########.fr       */
+/*   Created: 2024/12/24 15:09:07 by olthorel          #+#    #+#             */
+/*   Updated: 2024/12/24 15:09:07 by olthorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/checker_bonus.h"
 
 static void	free_split(char **array)
 {
@@ -36,6 +36,7 @@ static char	**parse_arguments(int argc, char **argv)
 	return (argv + 1);
 }
 
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
@@ -51,16 +52,21 @@ int	main(int argc, char **argv)
 		init_stack_a(&a, split_argv);
 	else
 		init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
+	if (!execute(&a, &b))
 	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		free_stack(&a);
+		free_stack(&b);
+		if (argc == 2)
+			free_split(split_argv);
+		return (1);
 	}
+	if (stack_sorted(a) && b == NULL)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	free_stack(&a);
+	free_stack(&b);
 	if (argc == 2)
 		free_split(split_argv);
+	return (0);
 }
