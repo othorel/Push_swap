@@ -88,3 +88,29 @@ Example:
 ```bash
 ./push_swap 3 2 1
 ```
+Output:
+```bash
+pb
+sa
+pa
+```
+---
+
+## 🧪 Testing
+
+Test the program with various cases to ensure robustness:
+
+1 Basic Test:
+```bash
+./push_swap 3 2 1
+```
+2 Large Inputs:
+```bash
+./push_swap $(seq 1 500 | shuf)
+```
+3 Checker Validation:
+```bash
+ARG="3 2 1"; ./push_swap $ARG | ./checker_linux $ARG
+```
+---
+
