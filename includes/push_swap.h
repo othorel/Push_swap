@@ -6,7 +6,7 @@
 /*   By: olthorel <olthorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:02 by olthorel          #+#    #+#             */
-/*   Updated: 2024/12/20 17:21:07 by olthorel         ###   ########.fr       */
+/*   Updated: 2024/12/26 13:47:04 by olthorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_stack_node	*find_last(t_stack_node *stack);
 bool			stack_sorted(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
+long			ft_atol(const char *s);
 
 /* ************************************************************************** */
 /*								OPERATIONS                                    */

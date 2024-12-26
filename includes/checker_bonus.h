@@ -19,8 +19,13 @@
 # include "../libft/libft.h"
 # include "../libft/ft_printf.h"
 
-int	is_valid_instruction(char *line);
-int	execute_instruction(t_stack_node **a, t_stack_node **b, char *line);
-int	execute(t_stack_node **a, t_stack_node **b);
+int		execute_instructions(char *c, t_stack_node **stack_a,
+			t_stack_node **stack_b);
+int		read_and_execute_instructions(t_stack_node **stack_a,
+			t_stack_node **stack_b);
+int		validate_arguments(int ac, char **av);
+int		ft_strcmp(const char *s1, const char *s2);
+void	push(t_stack_node **dst, t_stack_node **src);
+void	free_split(char **array);
 
 #endif
