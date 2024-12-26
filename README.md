@@ -88,3 +88,37 @@ To verify if the sorting algorithm worked correctly, use the checker program:
 This will read the sequence of moves from standard input, apply them, and check if the stack is sorted.
 
 ---
+
+## 🧪 Testing
+
+You can test the functionality of both the push_swap and checker programs by using various input cases.
+
+For example:
+```bash
+./push_swap 3 2 1
+./checker 3 2 1
+```
+Sample output:
+For a sorted stack of 1 2 3, push_swap might output:
+```bash
+sa
+ra
+```
+Then, you can check it with the checker:
+```bah
+OK
+```
+You can also test the edge cases with larger inputs to ensure the algorithm's efficiency:
+```bash
+./push_swap 100 50 10 30 70 60
+./checker 100 50 10 30 70 60
+```
+This will help verify that your algorithm is working correctly and that the stack is sorted with minimal operations.
+
+---
+
+## 🤝 Contributing
+
+If you'd like to contribute to this project, feel free to fork the repository, make your changes, and submit a pull request!
+
+---
