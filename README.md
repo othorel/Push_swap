@@ -54,3 +54,37 @@ Use the **Makefile** to compile the project.
 - **Compile the project:**
   ```bash
   make
+  ```
+- **Clean the project (remove object files):**
+  ```bash
+  make clean
+  ```
+- **Full cleanup (remove all generated files):**
+  ```bash
+  make fclean
+  ```
+- **Recompile after cleaning:**
+  ```bash
+  make re
+  ```
+  ---
+
+## 💻 Usage
+
+Once compiled, you can use the push_swap and checker programs as follows:
+
+Sorting the stack:
+To sort a stack, run the push_swap program with a series of integers as input:
+```bash
+./push_swap 3 2 1
+```
+This will output the series of moves required to sort the stack in the fewest possible operations.
+
+Checking the result:
+To verify if the sorting algorithm worked correctly, use the checker program:
+```bash
+./checker 3 2 1
+```
+This will read the sequence of moves from standard input, apply them, and check if the stack is sorted.
+
+---
