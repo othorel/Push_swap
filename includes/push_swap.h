@@ -6,7 +6,7 @@
 /*   By: olthorel <olthorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 09:30:02 by olthorel          #+#    #+#             */
-/*   Updated: 2024/12/26 13:47:04 by olthorel         ###   ########.fr       */
+/*   Updated: 2024/12/27 13:32:16 by olthorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ typedef struct s_stack_node
 int				error_syntax(char *str_n);
 int				error_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
-void			free_errors(t_stack_node **a);
+void			free_errors(t_stack_node **a, char **argv, int argc);
 
 /* ************************************************************************** */
 /*								STACK FUNCTIONS                               */
 /* ************************************************************************** */
 
-void			init_stack_a(t_stack_node **a, char **argv);
+void			init_stack_a(t_stack_node **a, char **argv, int argc);
 char			**split(char *s, char c);
 
 /* ************************************************************************** */

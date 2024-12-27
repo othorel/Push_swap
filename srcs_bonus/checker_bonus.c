@@ -75,11 +75,11 @@ static int	process_arguments(int argc, char **argv, t_stack_node **stack_a)
 			ft_printf("Error\n");
 			return (0);
 		}
-		init_stack_a(stack_a, split_args);
+		init_stack_a(stack_a, split_args, argc);
 		free_split(split_args);
 	}
 	else
-		init_stack_a(stack_a, &argv[1]);
+		init_stack_a(stack_a, &argv[1], argc);
 	return (1);
 }
 

@@ -48,9 +48,9 @@ int	main(int argc, char **argv)
 	if (!split_argv)
 		return (1);
 	if (argc == 2)
-		init_stack_a(&a, split_argv);
+		init_stack_a(&a, split_argv, argc);
 	else
-		init_stack_a(&a, argv + 1);
+		init_stack_a(&a, argv + 1, argc);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
